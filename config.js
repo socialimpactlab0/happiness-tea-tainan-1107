@@ -1,6 +1,6 @@
 window.TEA_EVENT_CONFIG = {
   // 先部署新的 GAS 網頁應用程式，再把結尾為 /exec 的網址貼在下面。
-  GAS_WEB_APP_URL: "",
+  GAS_WEB_APP_URL: "https://script.google.com/macros/s/AKfycbyTVCWSuKM1afRHcHk4DuqfjnTQv4uj4u5ULTWerpfA3coOXElWJ7mD74mZAmcND5U/exec",
 
   // 11/7 活動編號。請勿與舊活動共用同一個活動編號。
   EVENT_ID: "2026-11-07-happiness-tea-tainan",
