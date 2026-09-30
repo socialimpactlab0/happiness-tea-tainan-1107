@@ -34,7 +34,7 @@ h1,h2,h3,p{margin:0}
 .top-cta{font-size:14px;text-decoration:none;padding:8px 16px;border-radius:99px;border:1px solid currentColor;white-space:nowrap;opacity:.95}
 
 .hero{position:relative;min-height:100svh;background:var(--deep);color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
-.hero-photo{position:absolute;left:0;right:0;top:0;height:74%;background:url(images/portrait.webp) center 8%/cover no-repeat}
+.hero-photo{position:absolute;left:0;right:0;top:0;height:74%;background:url(images/1107-main.png) 78% 18%/cover no-repeat}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,48,39,.45) 0%,rgba(31,48,39,0) 16%,rgba(31,48,39,0) 38%,rgba(31,48,39,.8) 58%,var(--deep) 72%)}
 .hero-body{position:relative;padding:0 26px 28px;max-width:560px}
 .hero-kicker{font-size:13px;letter-spacing:.26em;color:var(--gold-soft)}
@@ -57,7 +57,7 @@ h1,h2,h3,p{margin:0}
 .letter-sign small{display:block;font-family:var(--sans);font-size:13px;color:var(--muted);letter-spacing:.06em;margin-top:2px}
 
 .talk-doctor{padding-bottom:64px}
-.tea-strip{height:180px;background:url(images/tea-table.webp) center 40%/cover no-repeat}
+.tea-strip{height:180px;background:url(images/1107-main.png) 30% 93%/cover no-repeat}
 .talk-grid{display:grid;grid-template-columns:56px 1fr;gap:6px;padding-top:48px}
 .talk-no{font-family:var(--serif);font-size:46px;line-height:1;color:var(--gold-soft)}
 .talk-no.light{color:var(--gold-soft);margin-bottom:14px}
