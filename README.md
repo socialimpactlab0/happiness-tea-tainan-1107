@@ -5,8 +5,7 @@
 ## 已完成
 - 保留較成熟的版面與手機優先設計。
 - 移除設計草稿、screenshots、JSX、srcmap 等不需要公開的檔案。
-- 圖片改用較小的 WebP。
-- 加入 Facebook / LINE 分享用的 `assets/images/share.jpg`。
+- Facebook / LINE 分享目前沿用 `assets/images/1107-main.png`。
 - 神韻藝術區已移除公開 placeholder，改為完整的深綠藝術視覺；日後若有授權舞台照再換即可。
 - GAS、UTM、Meta Pixel、1–4 人報名欄位與原邏輯保留。
 
@@ -38,7 +37,7 @@ README.md
 網站使用：
 
 ```html
-<meta property="og:image" content="assets/images/share.jpg">
+<meta property="og:image" content="assets/images/1107-main.png">
 ```
 
 等 GitHub Pages 網址確定後，若要提高 Facebook 抓圖穩定度，可把 `og:image` 與 `twitter:image` 改成完整網址。
