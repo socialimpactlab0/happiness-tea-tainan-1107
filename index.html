@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>幸福茶席｜11/7（六）台南・免費公益講座</title>
   <meta name="description" content="11/7（六）台南免費幸福茶席。陳乃菁中醫師聊身體、情緒與幸福，並由專業講師分享神韻藝術如何為心靈帶來正向力量。留一個下午給自己。">
-  <meta name="theme-color" content="#2B4234">
+  <meta name="theme-color" content="#F6F1E6">
   <meta property="og:title" content="幸福茶席｜11/7（六）台南・免費公益講座">
   <meta property="og:description" content="我想邀請你，留一個下午給自己。——陳乃菁中醫師">
   <meta property="og:type" content="website">
@@ -14,46 +14,299 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    /* 2026-10-05｜首屏簡化版：文字與人物分區，不再將海報文字當背景疊字 */
+    .hero.hero-clean{
+      min-height:100svh;
+      display:block;
+      overflow:hidden;
+      background:#f7f2e8;
+      color:#241f1a;
+    }
+    .hero-clean-grid{
+      min-height:100svh;
+      display:grid;
+      grid-template-columns:minmax(0,1.03fr) minmax(430px,.97fr);
+    }
+    .hero-copy-clean{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:86px clamp(42px,7vw,118px) 64px;
+      background:
+        radial-gradient(circle at 20% 10%,rgba(255,255,255,.85),transparent 32%),
+        #f7f2e8;
+    }
+    .hero-kicker{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      margin:0 0 34px;
+      font-size:12px;
+      line-height:1.5;
+      letter-spacing:.16em;
+      color:#8a6a47;
+      font-weight:500;
+    }
+    .hero-kicker::before{
+      content:"";
+      width:32px;
+      height:1px;
+      background:#b08d52;
+      flex:0 0 32px;
+    }
+    .hero-clean .eyebrow{
+      margin:0 0 16px;
+      color:#3c5a47;
+      font-size:13px;
+      letter-spacing:.17em;
+    }
+    .hero-clean h1{
+      max-width:720px;
+      margin:0;
+      color:#2a241f;
+      font-family:var(--serif);
+      font-size:clamp(46px,5.2vw,76px);
+      font-weight:400;
+      line-height:1.3;
+      letter-spacing:.015em;
+      text-shadow:none;
+    }
+    .hero-clean h1 em{
+      display:inline-block;
+      margin-top:.06em;
+      color:#3c5a47;
+      font-style:normal;
+      font-weight:500;
+    }
+    .hero-sub-clean{
+      max-width:570px;
+      margin:25px 0 0;
+      color:#655b51;
+      font-family:var(--serif);
+      font-size:clamp(17px,1.45vw,21px);
+      line-height:1.9;
+      letter-spacing:.025em;
+    }
+    .hero-meta-clean{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:0;
+      max-width:590px;
+      margin:34px 0 0;
+      padding:19px 0;
+      border-top:1px solid rgba(60,90,71,.18);
+      border-bottom:1px solid rgba(60,90,71,.18);
+    }
+    .hero-meta-clean>span{
+      display:block;
+      min-width:0;
+      padding-right:24px;
+    }
+    .hero-meta-clean>span+span{
+      padding-left:26px;
+      border-left:1px solid rgba(60,90,71,.18);
+    }
+    .hero-meta-clean b{
+      display:block;
+      color:#2b4234;
+      font-family:var(--serif);
+      font-size:18px;
+      font-weight:500;
+      line-height:1.5;
+    }
+    .hero-meta-clean small{
+      display:block;
+      margin-top:3px;
+      color:#887b6f;
+      font-size:12px;
+      line-height:1.6;
+      letter-spacing:.035em;
+    }
+    .cta-clean{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      width:min(100%,590px);
+      margin-top:24px;
+      padding:18px 22px;
+      background:#2f4c3b;
+      color:#fff;
+      text-decoration:none;
+      font-size:16px;
+      font-weight:700;
+      letter-spacing:.06em;
+      box-shadow:0 12px 30px rgba(43,66,52,.14);
+      transition:transform .2s ease,background .2s ease;
+    }
+    .cta-clean:hover{
+      transform:translateY(-1px);
+      background:#263f31;
+    }
+    .cta-clean span{
+      font-size:22px;
+      font-weight:400;
+      line-height:1;
+    }
+    .hero-micro{
+      margin:13px 0 0;
+      color:#8b8074;
+      font-size:12.5px;
+      line-height:1.7;
+    }
+    .hero-portrait{
+      position:relative;
+      min-height:100svh;
+      background-image:url("assets/images/1107-main.png");
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:76% 30%;
+    }
+    .hero-portrait::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg,rgba(247,242,232,.34) 0%,rgba(247,242,232,0) 24%),
+        linear-gradient(180deg,rgba(27,36,30,0) 58%,rgba(27,36,30,.22) 100%);
+      pointer-events:none;
+    }
+    .hero-doctor-label{
+      position:absolute;
+      left:34px;
+      bottom:34px;
+      z-index:2;
+      padding:13px 16px 12px;
+      background:rgba(250,247,240,.88);
+      border:1px solid rgba(255,255,255,.5);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      color:#2f4538;
+    }
+    .hero-doctor-label b{
+      display:block;
+      font-family:var(--serif);
+      font-size:18px;
+      font-weight:500;
+      letter-spacing:.06em;
+    }
+    .hero-doctor-label small{
+      display:block;
+      margin-top:2px;
+      color:#786b60;
+      font-size:11px;
+      letter-spacing:.08em;
+    }
+
+    @media (max-width:900px){
+      .hero.hero-clean{min-height:auto;}
+      .hero-clean-grid{
+        min-height:auto;
+        display:flex;
+        flex-direction:column;
+      }
+      .hero-portrait{
+        order:1;
+        min-height:0;
+        height:43svh;
+        max-height:430px;
+        background-size:cover;
+        background-position:73% 26%;
+      }
+      .hero-portrait::before{
+        background:linear-gradient(180deg,rgba(247,242,232,0) 62%,rgba(247,242,232,.16) 100%);
+      }
+      .hero-doctor-label{
+        left:18px;
+        bottom:18px;
+        padding:9px 12px 8px;
+      }
+      .hero-doctor-label b{font-size:15px;}
+      .hero-copy-clean{
+        order:2;
+        padding:30px 24px 38px;
+        justify-content:flex-start;
+      }
+      .hero-kicker{
+        margin-bottom:19px;
+        font-size:11px;
+      }
+      .hero-clean .eyebrow{
+        margin-bottom:10px;
+        font-size:11px;
+        letter-spacing:.12em;
+      }
+      .hero-clean h1{
+        font-size:clamp(34px,9.6vw,46px);
+        line-height:1.34;
+        letter-spacing:0;
+      }
+      .hero-sub-clean{
+        margin-top:15px;
+        font-size:15px;
+        line-height:1.75;
+      }
+      .hero-meta-clean{
+        margin-top:21px;
+        padding:14px 0;
+      }
+      .hero-meta-clean>span{padding-right:13px;}
+      .hero-meta-clean>span+span{padding-left:14px;}
+      .hero-meta-clean b{font-size:15px;}
+      .hero-meta-clean small{font-size:11px;}
+      .cta-clean{
+        margin-top:18px;
+        padding:16px 18px;
+        font-size:15.5px;
+      }
+      .hero-micro{font-size:11.5px;}
+    }
+
+    @media (max-width:390px){
+      .hero-portrait{height:39svh;min-height:270px;}
+      .hero-copy-clean{padding-left:20px;padding-right:20px;}
+      .hero-clean h1{font-size:32px;}
+      .hero-meta-clean{grid-template-columns:1fr;gap:12px;}
+      .hero-meta-clean>span+span{
+        padding-left:0;
+        border-left:0;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="hero" id="top">
-    <div class="hero-visual" aria-hidden="true"></div>
-    <div class="hero-overlay"></div>
+  <header class="hero hero-clean" id="top">
+    <div class="hero-clean-grid">
+      <div class="hero-copy-clean">
+        <p class="hero-kicker">幸福茶席｜免費公益講座・事先預約</p>
+        <p class="eyebrow">中醫師 × 茶席 × 情緒與幸福</p>
+        <h1>留一個下午給自己，<br><em>慢下來，感受幸福。</em></h1>
+        <p class="hero-sub-clean">先聊聊身體與心情，再從藝術裡，帶一點溫暖與力量回家。</p>
 
-    <div class="hero-mark">
-      <span>免費公益講座・採事先預約</span>
-      <span>台南・維悅酒店</span>
-    </div>
-
-    <div class="hero-side-title">幸福茶席</div>
-    <div class="date-seal">11.7<br><small>SAT</small></div>
-
-    <div class="hero-inner">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow on-dark">中醫師 × 茶席 × 情緒與幸福</p>
-          <h1>留一個下午給自己，<br>慢下來，<em>感受幸福</em>。</h1>
-          <p class="hero-sub">先聊聊身體與心情，再從藝術裡，帶一點溫暖與力量回家。</p>
+        <div class="hero-meta-clean">
+          <span>
+            <b>11/7（六）14:00 品茗</b>
+            <small>14:30 正式開始・16:30 結束</small>
+          </span>
+          <span>
+            <b>台南維悅酒店 B1</b>
+            <small>安平區慶平路 539 號・免費預約制</small>
+          </span>
         </div>
 
-        <div class="hero-info">
-          <div class="doctor-quote">
-            <div>
-              <span class="q">「我想邀請你，<br>留一個下午給自己。」</span>
-              <span class="by">陳乃菁　中醫師</span>
-            </div>
-          </div>
+        <a class="cta-clean" href="#registration">免費報名・保留一席 <span aria-hidden="true">→</span></a>
+        <p class="hero-micro">陳乃菁中醫師｜另有專業講師分享神韻藝術帶給人的正向力量</p>
+      </div>
 
-          <div class="facts">
-            <div><small>日期</small><strong>11/7<br>（六）</strong></div>
-            <div><small>入席</small><strong>14:00<br>品茗</strong></div>
-            <div><small>地點</small><strong>維悅<br>酒店 B1</strong></div>
-            <div><small>費用</small><strong>免費<br>預約制</strong></div>
-          </div>
-
-          <a class="cta" href="#registration">免費報名・保留一席</a>
-          <p class="cta-note">一次最多可報名 4 位</p>
+      <div class="hero-portrait" role="img" aria-label="陳乃菁中醫師與幸福茶席主視覺">
+        <div class="hero-doctor-label">
+          <b>陳乃菁 中醫師</b>
+          <small>主治醫師 × 教育部講師</small>
         </div>
       </div>
     </div>
