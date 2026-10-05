@@ -138,6 +138,27 @@
       .invitation-copy p{font-size:13px}
       .nav-links{gap:12px;font-size:14px}
     }
+
+    /* 修正手機實測：只顯示一份主視覺，放大字體時內容自然增高。 */
+    @media(max-width:859px){
+      .hero-clean .hero-clean-grid{display:flex;flex-direction:column;align-items:stretch}
+      .hero-clean .hero-portrait{order:-1;width:100%;margin:0;padding:0;transform:none}
+      .hero-clean .hero-portrait img.desktop-poster{display:block;width:100%;height:auto}
+      .hero-clean .hero-portrait figcaption{display:none}
+      .hero-clean .hero-copy-clean{order:1;min-width:0;padding:20px}
+      .hero-clean .site-nav{display:flex;flex-wrap:wrap;gap:8px;padding:8px 20px}
+      .hero-clean .site-brand{font-size:18px;letter-spacing:.04em;white-space:nowrap;flex-shrink:0}
+      .hero-clean .nav-links{margin-left:auto;gap:0}
+      .hero-clean .nav-links .nav-program,.hero-clean .nav-links .nav-venue{display:none}
+      .hero-clean .nav-links a{font-size:16px;white-space:nowrap;min-height:44px}
+      .hero-clean .hero-kicker{font-size:14px;letter-spacing:0;line-height:1.6;margin-bottom:10px}
+      .hero-clean .hero-sub-clean{font-size:16px;line-height:1.7}
+      .hero-clean .hero-meta-clean b{font-size:16px;line-height:1.6}
+      .hero-clean .hero-meta-clean small{font-size:14px;line-height:1.7}
+      .hero-clean .cta-clean{display:flex;justify-content:center;text-align:center;min-height:52px;font-size:18px;letter-spacing:.04em;line-height:1.5;padding:12px 16px}
+      .hero-clean .hero-micro{font-size:14px;line-height:1.7}
+      .sticky a{line-height:1.5}
+    }
   </style>
 </head>
 <body>
@@ -145,18 +166,18 @@
   <header class="hero hero-clean" id="top">
     <nav class="site-nav" aria-label="頁面導覽">
       <a class="site-brand" href="#top">幸福茶席</a>
-      <div class="nav-links"><a href="#program">活動內容</a><a class="nav-venue" href="#event-info">時間地點</a><a href="#registration">免費報名</a></div>
+      <div class="nav-links"><a class="nav-program" href="#program">活動內容</a><a class="nav-venue" href="#event-info">時間地點</a><a href="#registration">免費報名</a></div>
     </nav>
     <div class="hero-clean-grid">
       <div class="hero-copy-clean">
-        <p class="hero-kicker">幸福茶席｜免費公益講座・事先預約</p>
+        <p class="hero-kicker">免費公益講座・事先預約</p>
         <p class="eyebrow">中醫師分享 × 神韻藝術 × 品茶交流</p>
         <h1>中醫師談幸福，<br><em>留一個下午給自己。</em></h1>
         <p class="hero-sub-clean">聽陳乃菁中醫師聊身心，從神韻藝術感受美好。<br>一杯茶，一段留給自己的午後時光。</p>
 
         <div class="hero-meta-clean">
           <span>
-            <b>2026/11/7（六）下午 2:00 品茗入席</b>
+            <b>11/7（六）下午 2:00 入席</b>
             <small>下午 2:30 開始・下午 4:30 結束</small>
           </span>
           <span>
@@ -165,16 +186,12 @@
           </span>
         </div>
 
-        <a class="cta-clean" href="#registration">免費報名・保留一席 <span aria-hidden="true">→</span></a>
+        <a class="cta-clean" href="#registration">免費報名</a>
         <p class="hero-micro">免費參加・一次可報名 1–2 位・歡迎與親友同行</p>
       </div>
 
       <figure class="hero-portrait">
         <img class="desktop-poster" src="assets/images/1107-main.webp" width="1024" height="768" alt="幸福茶席活動海報，陳乃菁中醫師主講" fetchpriority="high">
-        <div class="mobile-invitation">
-          <div class="invitation-copy"><p>一杯茶・一個美好的午後</p><h2>中醫師<br>談<span>幸福</span></h2><p class="invitation-doctor">陳乃菁 中醫師</p><p>身心分享 × 神韻藝術</p></div>
-          <div class="invitation-portrait" role="img" aria-label="陳乃菁中醫師"></div>
-        </div>
         <figcaption>11 月 7 日・台南幸福茶席</figcaption>
       </figure>
     </div>
