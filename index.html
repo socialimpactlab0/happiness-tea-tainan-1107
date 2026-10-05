@@ -65,6 +65,13 @@
     .required-note{font-size:14px;color:var(--ink2);margin-top:10px}
     .form-card .submit:disabled{opacity:.65;cursor:wait}
     .status{font-size:15px}
+    .event-contact{margin-top:26px;padding-top:22px;border-top:1px solid var(--hair);font-size:16px;color:var(--ink2)}
+    .event-contact p+p{margin-top:10px}
+    .contact-phone{display:inline-block;color:var(--green-d);font-size:22px;font-weight:700;letter-spacing:.03em;padding:6px 0;text-underline-offset:5px}
+    .reg-contact{border-top:1px solid #ffffff40;padding-top:20px;margin-top:22px;font-size:16px;color:#ede6d8}
+    .reg-contact .contact-phone{color:#fff}
+    .doctor-position{font-size:15px;color:var(--ink2);margin-top:-10px}
+    .foot-contact{margin-top:18px}
     section[id]{scroll-margin-top:24px}
     @media(max-width:859px){
       .site-nav{padding:16px 22px}.site-brand{font-size:18px}.nav-links{gap:16px;font-size:13px}
@@ -137,6 +144,7 @@
             <span class="num">分享 01</span>
             <h2>聊聊身體、<br>情緒與幸福</h2>
             <p class="who">陳乃菁　中醫師</p>
+            <p class="doctor-position">現任台南市裕信中醫診所主治醫師</p>
           </div>
           <div>
             <p class="lead">由陳乃菁中醫師分享，從身體與情緒的關係出發，聊聊如何在忙碌生活中，多關心自己的身心狀態。</p>
@@ -198,6 +206,11 @@
               <a href="https://maps.google.com/?q=台南市安平區慶平路539號" target="_blank" rel="noopener">在地圖上開啟 →</a>
             </div>
           </div>
+          <div class="event-contact">
+            <p><strong>主辦單位</strong>｜社團法人台灣法輪大法學會</p>
+            <p><strong>報名窗口</strong>｜謝小姐<br><a class="contact-phone" href="tel:0910283352" aria-label="撥打報名電話 0910-283-352，謝小姐">0910-283-352</a></p>
+            <p>免費入場，敬請預約。下午 2:00 品茗，2:30–4:30 活動。</p>
+          </div>
         </div>
       </div>
     </section>
@@ -213,6 +226,10 @@
             <li>每位參加者填寫姓名、手機、職業</li>
             <li>資料僅供本次活動聯絡與席次確認</li>
           </ul>
+          <div class="reg-contact">
+            <p>電話報名／報名問題洽詢：謝小姐</p>
+            <a class="contact-phone" href="tel:0910283352">0910-283-352</a>
+          </div>
         </div>
 
         <div class="form-card">
@@ -265,7 +282,7 @@
 
             <label class="consent">
               <input type="checkbox" name="consent" required>
-              <span>我同意主辦單位將上述資料用於本次活動聯絡與席次確認。</span>
+              <span>我同意主辦單位「社團法人台灣法輪大法學會」將上述資料用於本次活動聯絡與席次確認。</span>
             </label>
 
             <button class="btn submit submit-button" type="submit">
@@ -318,6 +335,10 @@
       <div class="foot-title">幸福茶席</div>
       <b>幸福茶席・公益講座</b>
       <small>11/7（六）・維悅酒店 B1 國際會議廳・免費參加<br>台南市安平區慶平路 539 號</small>
+      <div class="foot-contact">
+        <small>主辦單位｜社團法人台灣法輪大法學會</small>
+        <small>報名窗口｜謝小姐 <a class="contact-phone" href="tel:0910283352">0910-283-352</a></small>
+      </div>
     </footer>
   </main>
 
