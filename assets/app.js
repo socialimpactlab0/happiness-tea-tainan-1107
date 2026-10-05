@@ -144,7 +144,7 @@
 
       group.querySelectorAll("input").forEach(function (input) {
         input.disabled = !active;
-        input.required = active;
+        input.required = active && !input.name.endsWith("Occupation");
         if (!active) input.value = "";
       });
     });
@@ -156,7 +156,8 @@
       participants.push({
         name: String(formData.get("participant" + index + "Name") || "").trim(),
         phone: normalizePhone(formData.get("participant" + index + "Phone")),
-        occupation: String(formData.get("participant" + index + "Occupation") || "").trim()
+        // 留白以明確的缺省標記送至既有 GAS，兼容後台的非空檢查。
+        occupation: String(formData.get("participant" + index + "Occupation") || "").trim() || "未填寫"
       });
     }
     return participants;

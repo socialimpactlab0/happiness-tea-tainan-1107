@@ -278,7 +278,7 @@
           <p class="lead light">活動免費參加，採事先報名。送出後請確認畫面顯示「報名完成」，主辦單位將於活動前依報名資料與您聯絡。</p>
           <ul class="reg-points">
             <li>一次最多可報名 4 位</li>
-            <li>每位參加者填寫姓名、手機、職業</li>
+            <li>每位參加者填寫姓名、手機；職業選填</li>
             <li>資料僅供本次活動聯絡與席次確認</li>
           </ul>
           <div class="reg-contact">
@@ -292,7 +292,7 @@
             <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
             <h3>填寫報名資料</h3>
-            <p class="helper">請先選擇參加人數，再填寫資料。各位參加者需使用不同的聯絡手機。所有欄位皆為必填。</p>
+            <p class="helper">請先選擇參加人數，再填寫資料。各位參加者需使用不同的聯絡手機。姓名、手機為必填，職業可留白。</p>
 
             <label>
               <span>參加人數（含自己）</span>
@@ -310,28 +310,28 @@
                 <legend>第1位・主要聯絡人</legend>
                 <label><span>姓名</span><input type="text" name="participant1Name" autocomplete="name" maxlength="40" placeholder="請輸入姓名" required></label>
                 <label><span>聯絡手機</span><input type="tel" name="participant1Phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="例如：0912-345-678" required></label>
-                <label><span>職業</span><input type="text" name="participant1Occupation" autocomplete="organization-title" maxlength="50" placeholder="例如：教師、自營業、退休" required></label>
+                <label><span>職業（選填）</span><input type="text" name="participant1Occupation" autocomplete="organization-title" maxlength="50" placeholder="可留白，例如：教師、自營業、退休"></label>
               </fieldset>
 
               <fieldset class="participant-group" data-participant="2" hidden>
                 <legend>第2位・同行者</legend>
                 <label><span>姓名</span><input type="text" name="participant2Name" maxlength="40" placeholder="請輸入姓名" disabled></label>
                 <label><span>聯絡手機</span><input type="tel" name="participant2Phone" inputmode="tel" maxlength="20" placeholder="例如：0912-345-678" disabled></label>
-                <label><span>職業</span><input type="text" name="participant2Occupation" maxlength="50" placeholder="例如：教師、自營業、退休" disabled></label>
+                <label><span>職業（選填）</span><input type="text" name="participant2Occupation" maxlength="50" placeholder="可留白，例如：教師、自營業、退休" disabled></label>
               </fieldset>
 
               <fieldset class="participant-group" data-participant="3" hidden>
                 <legend>第3位・同行者</legend>
                 <label><span>姓名</span><input type="text" name="participant3Name" maxlength="40" placeholder="請輸入姓名" disabled></label>
                 <label><span>聯絡手機</span><input type="tel" name="participant3Phone" inputmode="tel" maxlength="20" placeholder="例如：0912-345-678" disabled></label>
-                <label><span>職業</span><input type="text" name="participant3Occupation" maxlength="50" placeholder="例如：教師、自營業、退休" disabled></label>
+                <label><span>職業（選填）</span><input type="text" name="participant3Occupation" maxlength="50" placeholder="可留白，例如：教師、自營業、退休" disabled></label>
               </fieldset>
 
               <fieldset class="participant-group" data-participant="4" hidden>
                 <legend>第4位・同行者</legend>
                 <label><span>姓名</span><input type="text" name="participant4Name" maxlength="40" placeholder="請輸入姓名" disabled></label>
                 <label><span>聯絡手機</span><input type="tel" name="participant4Phone" inputmode="tel" maxlength="20" placeholder="例如：0912-345-678" disabled></label>
-                <label><span>職業</span><input type="text" name="participant4Occupation" maxlength="50" placeholder="例如：教師、自營業、退休" disabled></label>
+                <label><span>職業（選填）</span><input type="text" name="participant4Occupation" maxlength="50" placeholder="可留白，例如：教師、自營業、退休" disabled></label>
               </fieldset>
             </div>
 
@@ -376,7 +376,7 @@
           </details>
           <details>
             <summary>可以帶家人或朋友一起參加嗎？</summary>
-            <p>可以。一次最多可報名 4 位，請填寫每一位實際參加者的姓名、手機與職業，以利確認茶席。</p>
+            <p>可以。一次最多可報名 4 位，請填寫每一位實際參加者的姓名、手機，以利確認茶席；職業為選填。</p>
           </details>
           <details>
             <summary>需要費用嗎？需要自備什麼嗎？</summary>
@@ -419,6 +419,6 @@
   </script>
 
   <script src="config.js"></script>
-  <script src="assets/app.js"></script>
+  <script src="assets/app.js?v=20261005-occupation-optional"></script>
 </body>
 </html>
