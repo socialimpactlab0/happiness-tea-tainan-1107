@@ -199,6 +199,11 @@
 
     const formData = new FormData(form);
     const partySize = Number(formData.get("partySize"));
+    if (!Number.isInteger(partySize) || partySize < 1 || partySize > 2) {
+      status.textContent = "每次最多可報名 2 位，請選擇 1 位或 2 位。";
+      partySizeSelect.focus();
+      return;
+    }
     const participants = collectParticipants(formData, partySize);
 
     const invalidPhoneIndex = participants.findIndex(function (participant) {
