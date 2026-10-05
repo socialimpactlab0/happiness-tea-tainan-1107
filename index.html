@@ -7,337 +7,130 @@
   <meta name="description" content="11/7（六）台南免費幸福茶席。陳乃菁中醫師聊身體、情緒與幸福，並由專業講師分享神韻藝術如何為心靈帶來正向力量。留一個下午給自己。">
   <meta name="theme-color" content="#F6F1E6">
   <meta property="og:title" content="幸福茶席｜11/7（六）台南・免費公益講座">
-  <meta property="og:description" content="我想邀請你，留一個下午給自己。——陳乃菁中醫師">
+  <meta property="og:description" content="11/7 台南免費幸福茶席：陳乃菁中醫師談身體與情緒，神韻藝術分享，品茶交流。14:00 入席，維悅酒店 B1。">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/1107-main.png">
+  <meta property="og:image" content="https://socialimpactlab0.github.io/happiness-tea-tainan-1107/assets/images/1107-main.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 
   <style>
-    /* 2026-10-05｜首屏簡化版：文字與人物分區，不再將海報文字當背景疊字 */
-    .hero.hero-clean{
-      min-height:100svh;
-      display:block;
-      overflow:hidden;
-      background:#f7f2e8;
-      color:#241f1a;
-    }
-    .hero-clean-grid{
-      min-height:100svh;
-      display:grid;
-      grid-template-columns:minmax(0,1.03fr) minmax(430px,.97fr);
-    }
-    .hero-copy-clean{
-      position:relative;
-      z-index:2;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      padding:86px clamp(42px,7vw,118px) 64px;
-      background:
-        radial-gradient(circle at 20% 10%,rgba(255,255,255,.85),transparent 32%),
-        #f7f2e8;
-    }
-    .hero-kicker{
-      display:flex;
-      align-items:center;
-      gap:11px;
-      margin:0 0 34px;
-      font-size:12px;
-      line-height:1.5;
-      letter-spacing:.16em;
-      color:#8a6a47;
-      font-weight:500;
-    }
-    .hero-kicker::before{
-      content:"";
-      width:32px;
-      height:1px;
-      background:#b08d52;
-      flex:0 0 32px;
-    }
-    .hero-clean .eyebrow{
-      margin:0 0 16px;
-      color:#3c5a47;
-      font-size:13px;
-      letter-spacing:.17em;
-    }
-    .hero-clean h1{
-      max-width:720px;
-      margin:0;
-      color:#2a241f;
-      font-family:var(--serif);
-      font-size:clamp(46px,5.2vw,76px);
-      font-weight:400;
-      line-height:1.3;
-      letter-spacing:.015em;
-      text-shadow:none;
-    }
-    .hero-clean h1 em{
-      display:inline-block;
-      margin-top:.06em;
-      color:#3c5a47;
-      font-style:normal;
-      font-weight:500;
-    }
-    .hero-sub-clean{
-      max-width:570px;
-      margin:25px 0 0;
-      color:#655b51;
-      font-family:var(--serif);
-      font-size:clamp(17px,1.45vw,21px);
-      line-height:1.9;
-      letter-spacing:.025em;
-    }
-    .hero-meta-clean{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:0;
-      max-width:590px;
-      margin:34px 0 0;
-      padding:19px 0;
-      border-top:1px solid rgba(60,90,71,.18);
-      border-bottom:1px solid rgba(60,90,71,.18);
-    }
-    .hero-meta-clean>span{
-      display:block;
-      min-width:0;
-      padding-right:24px;
-    }
-    .hero-meta-clean>span+span{
-      padding-left:26px;
-      border-left:1px solid rgba(60,90,71,.18);
-    }
-    .hero-meta-clean b{
-      display:block;
-      color:#2b4234;
-      font-family:var(--serif);
-      font-size:18px;
-      font-weight:500;
-      line-height:1.5;
-    }
-    .hero-meta-clean small{
-      display:block;
-      margin-top:3px;
-      color:#887b6f;
-      font-size:12px;
-      line-height:1.6;
-      letter-spacing:.035em;
-    }
-    .cta-clean{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-      width:min(100%,590px);
-      margin-top:24px;
-      padding:18px 22px;
-      background:#2f4c3b;
-      color:#fff;
-      text-decoration:none;
-      font-size:16px;
-      font-weight:700;
-      letter-spacing:.06em;
-      box-shadow:0 12px 30px rgba(43,66,52,.14);
-      transition:transform .2s ease,background .2s ease;
-    }
-    .cta-clean:hover{
-      transform:translateY(-1px);
-      background:#263f31;
-    }
-    .cta-clean span{
-      font-size:22px;
-      font-weight:400;
-      line-height:1;
-    }
-    .hero-micro{
-      margin:13px 0 0;
-      color:#8b8074;
-      font-size:12.5px;
-      line-height:1.7;
-    }
-    .hero-portrait{
-      position:relative;
-      min-height:100svh;
-      background-image:url("assets/images/1107-main.png");
-      background-repeat:no-repeat;
-      background-size:cover;
-      background-position:76% 30%;
-    }
-    .hero-portrait::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(90deg,rgba(247,242,232,.34) 0%,rgba(247,242,232,0) 24%),
-        linear-gradient(180deg,rgba(27,36,30,0) 58%,rgba(27,36,30,.22) 100%);
-      pointer-events:none;
-    }
-    .hero-doctor-label{
-      position:absolute;
-      left:34px;
-      bottom:34px;
-      z-index:2;
-      padding:13px 16px 12px;
-      background:rgba(250,247,240,.88);
-      border:1px solid rgba(255,255,255,.5);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-      color:#2f4538;
-    }
-    .hero-doctor-label b{
-      display:block;
-      font-family:var(--serif);
-      font-size:18px;
-      font-weight:500;
-      letter-spacing:.06em;
-    }
-    .hero-doctor-label small{
-      display:block;
-      margin-top:2px;
-      color:#786b60;
-      font-size:11px;
-      letter-spacing:.08em;
-    }
-
-    @media (max-width:900px){
-      .hero.hero-clean{min-height:auto;}
-      .hero-clean-grid{
-        min-height:auto;
-        display:flex;
-        flex-direction:column;
-      }
-      .hero-portrait{
-        order:1;
-        min-height:0;
-        height:43svh;
-        max-height:430px;
-        background-size:cover;
-        background-position:73% 26%;
-      }
-      .hero-portrait::before{
-        background:linear-gradient(180deg,rgba(247,242,232,0) 62%,rgba(247,242,232,.16) 100%);
-      }
-      .hero-doctor-label{
-        left:18px;
-        bottom:18px;
-        padding:9px 12px 8px;
-      }
-      .hero-doctor-label b{font-size:15px;}
-      .hero-copy-clean{
-        order:2;
-        padding:30px 24px 38px;
-        justify-content:flex-start;
-      }
-      .hero-kicker{
-        margin-bottom:19px;
-        font-size:11px;
-      }
-      .hero-clean .eyebrow{
-        margin-bottom:10px;
-        font-size:11px;
-        letter-spacing:.12em;
-      }
-      .hero-clean h1{
-        font-size:clamp(34px,9.6vw,46px);
-        line-height:1.34;
-        letter-spacing:0;
-      }
-      .hero-sub-clean{
-        margin-top:15px;
-        font-size:15px;
-        line-height:1.75;
-      }
-      .hero-meta-clean{
-        margin-top:21px;
-        padding:14px 0;
-      }
-      .hero-meta-clean>span{padding-right:13px;}
-      .hero-meta-clean>span+span{padding-left:14px;}
-      .hero-meta-clean b{font-size:15px;}
-      .hero-meta-clean small{font-size:11px;}
-      .cta-clean{
-        margin-top:18px;
-        padding:16px 18px;
-        font-size:15.5px;
-      }
-      .hero-micro{font-size:11.5px;}
-    }
-
-    @media (max-width:390px){
-      .hero-portrait{height:39svh;min-height:270px;}
-      .hero-copy-clean{padding-left:20px;padding-right:20px;}
-      .hero-clean h1{font-size:32px;}
-      .hero-meta-clean{grid-template-columns:1fr;gap:12px;}
-      .hero-meta-clean>span+span{
-        padding-left:0;
-        border-left:0;
-      }
+    /* 活動內容優先；沿用原有 GAS、追蹤與表單契約。 */
+    .hero.hero-clean{min-height:0;background:var(--paper2);color:var(--ink);display:block}
+    .site-nav{max-width:1200px;margin:auto;padding:22px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hair)}
+    .site-brand{font-family:var(--serif);font-size:21px;color:var(--green-d);text-decoration:none;letter-spacing:.16em}
+    .nav-links{display:flex;gap:24px;font-size:14px;color:var(--green-d)}
+    .nav-links a{text-decoration:none;padding:6px 0}
+    .hero-clean-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center;padding:56px 32px 64px}
+    .hero-kicker{color:var(--tea);font-size:14px;letter-spacing:.1em;margin-bottom:16px}
+    .hero-clean .eyebrow{font-size:14px;color:var(--green);margin-bottom:18px;letter-spacing:.08em}
+    .hero-clean h1{font-size:clamp(34px,3.5vw,49px);font-weight:500;color:var(--ink);line-height:1.45;text-shadow:none;margin:0;letter-spacing:.01em}
+    .hero-clean h1 em{color:var(--green);font-style:normal}
+    .hero-sub-clean{font-size:17px;line-height:1.9;color:var(--ink2);margin-top:22px;max-width:32em}
+    .hero-meta-clean{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin-top:26px;padding:18px 0;display:grid;gap:12px}
+    .hero-meta-clean b{font-size:17px;color:var(--green-d);display:block;font-weight:500}
+    .hero-meta-clean small{font-size:14px;color:var(--ink2);display:block}
+    .cta-clean{display:flex;justify-content:space-between;align-items:center;background:var(--green-d);color:white;text-decoration:none;padding:17px 22px;margin-top:24px;font-size:18px;font-weight:700;border-radius:4px;min-height:56px}
+    .cta-clean:hover{background:#203b2b}
+    .hero-micro{font-size:14px;color:var(--ink2);margin-top:12px}
+    .hero-portrait{margin:0;min-width:0;background:#eee6d6;padding:12px;transform:rotate(1deg);box-shadow:0 20px 50px #352c1918;border:1px solid #dbcfb9}
+    .hero-portrait img{display:block;width:100%;height:auto}
+    .hero-portrait figcaption{color:var(--ink2);font-size:13px;text-align:center;padding:10px 0 0;letter-spacing:.06em}
+    .benefits{padding:56px 0;background:white;border-top:1px solid var(--hair)}
+    .benefits h2{font-size:30px;font-weight:500;color:var(--green-d)}
+    .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:30px}
+    .benefit-card{padding:22px 0;border-top:2px solid var(--gold-l)}
+    .benefit-card .num{margin-bottom:10px}
+    .benefit-card h3{font-size:23px;font-weight:500;margin-bottom:12px}
+    .benefit-card p{font-size:16px;color:var(--ink2)}
+    .talk-body,.talk-body.dark{padding:66px 0}
+    .talk h2{font-weight:500;font-size:32px}
+    .who,.who.light{font-size:16px;color:var(--ink2)}
+    .who.light{color:#e2d6bc}
+    .talk-two .dark-list li{color:#ede6d8}
+    .talk-two .dark-list li+li{border-color:#ffffff26}
+    .talk-two .lead.light{color:#ede6d8}
+    .art-stage{display:none}
+    .bridge{font-size:17px;text-align:left;margin-top:24px;padding-top:20px}
+    .when{padding:64px 0;background:var(--paper2)}
+    .when-card{margin:0 auto;max-width:none;box-shadow:none;padding:36px}
+    .when .eyebrow{margin-bottom:12px}
+    .when h2{font-size:30px;color:var(--green-d);font-weight:500;margin-bottom:24px}
+    .when-date small,.flow small,.helper,.foot small,.success-state p{color:#655b50}
+    .reg,.faq{padding:64px 0}
+    .helper{font-size:15px;line-height:1.8}
+    .reg-points li{font-size:16px;color:#ede6d8}
+    .reg .lead.light{color:#ede6d8}
+    .required-note{font-size:14px;color:var(--ink2);margin-top:10px}
+    .form-card .submit:disabled{opacity:.65;cursor:wait}
+    .status{font-size:15px}
+    section[id]{scroll-margin-top:24px}
+    @media(max-width:859px){
+      .site-nav{padding:16px 22px}.site-brand{font-size:18px}.nav-links{gap:16px;font-size:13px}
+      .hero-clean-grid{grid-template-columns:1fr;gap:32px;padding:32px 24px 42px}
+      .hero-clean h1{font-size:clamp(30px,7.6vw,42px)}
+      .hero-sub-clean{font-size:16px;margin-top:18px}.hero-kicker{font-size:13px}
+      .hero-portrait{transform:none;max-width:480px;width:100%;margin:0 auto}
+      .benefits{padding:40px 0}.benefit-grid{grid-template-columns:1fr;gap:8px;margin-top:22px}
+      .benefit-card{padding:18px 0}.benefit-card h3{font-size:22px}.benefits h2,.talk h2,.when h2{font-size:27px}
+      .talk-body,.talk-body.dark,.reg,.faq{padding:44px 0}
+      .when{padding:42px 0}.when-card{padding:26px 20px}.flow li{grid-template-columns:96px 1fr;gap:10px}
+      .hero-micro{font-size:13px}.site-nav a{min-height:32px;display:inline-flex;align-items:center}
+      .sticky a{font-size:17px}
     }
   </style>
 </head>
 <body>
 
   <header class="hero hero-clean" id="top">
+    <nav class="site-nav" aria-label="頁面導覽">
+      <a class="site-brand" href="#top">幸福茶席</a>
+      <div class="nav-links"><a href="#program">活動內容</a><a href="#event-info">時間地點</a><a href="#registration">免費報名</a></div>
+    </nav>
     <div class="hero-clean-grid">
       <div class="hero-copy-clean">
         <p class="hero-kicker">幸福茶席｜免費公益講座・事先預約</p>
-        <p class="eyebrow">中醫師 × 茶席 × 情緒與幸福</p>
-        <h1>留一個下午給自己，<br><em>慢下來，感受幸福。</em></h1>
-        <p class="hero-sub-clean">先聊聊身體與心情，再從藝術裡，帶一點溫暖與力量回家。</p>
+        <p class="eyebrow">中醫師分享 × 神韻藝術 × 品茶交流</p>
+        <h1>中醫師談身心，<br><em>從藝術感受美好。</em></h1>
+        <p class="hero-sub-clean">平常忙著照顧家人，也留一個下午給自己。<br>與陳乃菁中醫師聊聊身體、情緒與生活，再透過神韻藝術分享，感受音樂與舞蹈之美。</p>
 
         <div class="hero-meta-clean">
           <span>
-            <b>11/7（六）14:00 品茗</b>
-            <small>14:30 正式開始・16:30 結束</small>
+            <b>2026/11/7（六）14:00 品茗入席</b>
+            <small>14:30 講座開始・16:30 活動結束</small>
           </span>
           <span>
-            <b>台南維悅酒店 B1</b>
+            <b>台南維悅酒店 B1 國際會議廳</b>
             <small>安平區慶平路 539 號・免費預約制</small>
           </span>
         </div>
 
         <a class="cta-clean" href="#registration">免費報名・保留一席 <span aria-hidden="true">→</span></a>
-        <p class="hero-micro">陳乃菁中醫師｜另有專業講師分享神韻藝術帶給人的正向力量</p>
+        <p class="hero-micro">免費參加・一次可報名 1–4 位・歡迎與親友同行</p>
       </div>
 
-      <div class="hero-portrait" role="img" aria-label="陳乃菁中醫師與幸福茶席主視覺">
-        <div class="hero-doctor-label">
-          <b>陳乃菁 中醫師</b>
-          <small>主治醫師 × 教育部講師</small>
-        </div>
-      </div>
+      <figure class="hero-portrait">
+        <img src="assets/images/1107-main.png" alt="幸福茶席活動海報，陳乃菁中醫師主講" fetchpriority="high">
+        <figcaption>11 月 7 日・台南幸福茶席</figcaption>
+      </figure>
     </div>
   </header>
 
   <main>
-    <section class="invite">
-      <div class="invite-top"></div>
-      <div class="wrap narrow">
-        <article class="letter-card">
-          <p class="eyebrow">陳乃菁中醫師的邀請</p>
-          <p class="letter-big">「最近的我，<br>過得好嗎？」</p>
-
-          <p>在忙碌的生活裡，我們常常很認真地照顧工作、家庭和身邊的人，卻很少停下來問自己這一句。</p>
-          <p>我一直覺得，真正的健康，不只是身體沒有不舒服。我們的情緒、心境，以及每天怎麼面對生活，也都很重要。</p>
-          <p>所以這一次，我想用一個比較輕鬆的方式，邀請大家坐下來，喝杯茶，聊聊<strong>身體、情緒與幸福</strong>。</p>
-          <p><strong>如果你最近有點忙、有點累，或者只是想讓自己安靜一個下午，很歡迎你來。</strong></p>
-
-          <div class="sign">
-            <span class="sign-face" aria-hidden="true"></span>
-            <div>
-              <b>陳乃菁</b>
-              <small>中醫師｜主治醫師 × 教育部講師</small>
-            </div>
-          </div>
-        </article>
+    <section class="benefits" id="program" aria-labelledby="benefits-title">
+      <div class="wrap">
+        <p class="eyebrow">給自己一個充實的午後</p>
+        <h2 id="benefits-title">聽分享、賞藝術，也喝一杯茶。</h2>
+        <div class="benefit-grid">
+          <article class="benefit-card"><span class="num">01 / 身心</span><h3>聽醫師分享</h3><p>從中醫觀點，認識身體、情緒與日常生活的關係。</p></article>
+          <article class="benefit-card"><span class="num">02 / 藝術</span><h3>感受神韻之美</h3><p>透過講師分享，認識神韻的音樂、舞蹈與文化之美。</p></article>
+          <article class="benefit-card"><span class="num">03 / 交流</span><h3>與親友品茶</h3><p>暫時放下忙碌，與家人朋友一起喝茶，聽聽不同的生活體會。</p></article>
+        </div>
       </div>
     </section>
 
     <section class="talk talk-one">
-      <div class="talk-photo tea-photo" role="img" aria-label="午後茶席"></div>
       <div class="talk-body">
         <div class="wrap two">
           <div>
@@ -346,12 +139,11 @@
             <p class="who">陳乃菁　中醫師</p>
           </div>
           <div>
-            <p class="lead">從中醫與身心的角度，談情緒、心境和每天的生活。不是艱深的理論，而是把專業變成更貼近日常的理解。</p>
+            <p class="lead">由陳乃菁中醫師分享，從身體與情緒的關係出發，聊聊如何在忙碌生活中，多關心自己的身心狀態。</p>
             <ul>
               <li>身體、情緒與生活之間，如何彼此影響</li>
               <li>忙碌時，怎麼重新察覺自己的身心狀態</li>
               <li>日常生活中，如何更好地照顧自己</li>
-              <li>把「健康」放回每天的生活，而不只是診間</li>
             </ul>
           </div>
         </div>
@@ -367,46 +159,27 @@
         <div class="wrap two">
           <div>
             <span class="num light">分享 02</span>
-            <h2>神韻藝術，<br>如何為心靈<br>帶來正向力量</h2>
+            <h2>從音樂與舞蹈，<br>感受神韻藝術之美</h2>
             <p class="who light">專業講師分享</p>
           </div>
           <div>
-            <p class="lead light">從音樂、舞蹈與藝術的角度，一起感受：為什麼美好的作品，會讓人心裡多一份平靜、多一點希望。</p>
+            <p class="lead light">由另一位講師帶領，從音樂、舞蹈與文化的角度認識神韻，分享藝術如何觸動人心。</p>
             <ul class="dark-list">
               <li>藝術如何帶給人感動與平靜</li>
               <li>音樂與舞蹈中的美，為什麼會觸動人心</li>
               <li>沒有看過神韻也沒關係，會用容易理解的方式分享</li>
-              <li>把一點美好與希望，重新帶回自己的生活</li>
             </ul>
-            <p class="bridge">這不是一場很嚴肅的講座。<br>更像是一個舒服的午後——<br>喝杯茶、聽一些分享，<br>也重新感受一下自己的心。</p>
+            <p class="bridge">本段為神韻藝術主題分享。沒有看過神韻，也可以輕鬆參與。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="fit">
-      <div class="wrap fit-two">
-        <div>
-          <p class="eyebrow">這個下午，也許值得留給自己</p>
-          <h2>如果你是<br>這樣的你</h2>
-        </div>
-        <div>
-          <div class="fit-list">
-            <div class="fit-row"><i>一</i><span>最近很忙、有點累，想讓自己慢下來一個下午</span></div>
-            <div class="fit-row"><i>二</i><span>關心情緒、身心平衡與生活品質</span></div>
-            <div class="fit-row"><i>三</i><span>喜歡喝茶，也喜歡有溫度的交流</span></div>
-            <div class="fit-row"><i>四</i><span>對藝術如何帶給人正向力量感到好奇</span></div>
-            <div class="fit-row"><i>五</i><span>想和家人或朋友，一起度過一個舒服的午後</span></div>
-          </div>
-          <p class="fit-note">不需要任何基礎，帶著自己來就好。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="when">
-      <div class="when-photo" role="img" aria-label="溫暖茶席場景"></div>
+    <section class="when" id="event-info">
       <div class="wrap">
         <div class="when-card">
+          <p class="eyebrow">時間與地點</p>
+          <h2>11 月 7 日，我們茶席見。</h2>
           <div class="when-head">
             <div class="when-date">11 / 7<small>2026・星期六　下午</small></div>
             <div class="small-seal">14:00<br>入席</div>
@@ -434,7 +207,7 @@
         <div>
           <p class="eyebrow on-dark">席次預約</p>
           <h2>為自己<br>保留一席</h2>
-          <p class="lead light">活動免費參加，採事先報名。填好資料，我們會在活動前與你聯絡。</p>
+          <p class="lead light">活動免費參加，採事先報名。送出後請確認畫面顯示「報名完成」，主辦單位將於活動前依報名資料與您聯絡。</p>
           <ul class="reg-points">
             <li>一次最多可報名 4 位</li>
             <li>每位參加者填寫姓名、手機、職業</li>
@@ -447,10 +220,10 @@
             <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
             <h3>填寫報名資料</h3>
-            <p class="helper">請填寫每一位實際參加者的資料，以便確認茶席。</p>
+            <p class="helper">請先選擇參加人數，再填寫資料。各位參加者需使用不同的聯絡手機。所有欄位皆為必填。</p>
 
             <label>
-              <span>參加人數</span>
+              <span>參加人數（含自己）</span>
               <select name="partySize" required>
                 <option value="">請選擇人數</option>
                 <option value="1">1 位</option>
@@ -499,6 +272,7 @@
               <span class="button-text">確認報名・保留茶席</span>
               <span class="button-loading" hidden>資料送出中…</span>
             </button>
+            <p class="required-note">送出後請等候結果，避免重複按送出；看到「報名完成」即表示資料已送達。</p>
             <p class="status" id="formStatus" role="status" aria-live="polite"></p>
           </form>
 
@@ -521,8 +295,8 @@
         </div>
         <div>
           <details>
-            <summary>這是一場很嚴肅的中醫講座嗎？</summary>
-            <p>不是。活動希望用輕鬆的茶席方式，聊身體、情緒與幸福，讓大家在舒服的氛圍中交流。</p>
+            <summary>活動有哪些內容？</summary>
+            <p>活動包含陳乃菁中醫師的身心主題分享、另一位講師的神韻藝術分享，以及品茗與茶敘交流。</p>
           </details>
           <details>
             <summary>沒有看過神韻，也可以參加嗎？</summary>
