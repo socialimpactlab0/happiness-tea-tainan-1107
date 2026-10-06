@@ -43,6 +43,7 @@ function refreshTeaAnalytics() {
 
   const byContent = {};
   const byCampaign = {};
+  const byAdset = {};
   const bySource = {};
   const byDevice = {};
   let firstDate = null;
@@ -56,6 +57,7 @@ function refreshTeaAnalytics() {
     const utmSource = String(row[6] || "");
     const utmCampaign = String(row[8] || "");
     const utmContent = String(row[9] || "");
+    const utmTerm = String(row[18] || "");
     const referrer = String(row[12] || "");
     const device = String(row[13] || "unknown") || "unknown";
     const recordId = String(row[16] || "");
@@ -72,6 +74,7 @@ function refreshTeaAnalytics() {
 
     addAnalyticsEvent_(byContent, utmContent || "未標記", eventName, sessionId, recordId);
     addAnalyticsEvent_(byCampaign, utmCampaign || "未標記", eventName, sessionId, recordId);
+    addAnalyticsEvent_(byAdset, utmTerm || "未標記", eventName, sessionId, recordId);
     addAnalyticsEvent_(bySource, analyticsSource_(utmSource, referrer), eventName, sessionId, recordId);
     addAnalyticsEvent_(byDevice, device, eventName, sessionId, recordId);
   });
@@ -90,6 +93,7 @@ function refreshTeaAnalytics() {
     firstDate, eventId,
     byContent: analyticsRows_(byContent, true),
     byCampaign: analyticsRows_(byCampaign, true),
+    byAdset: analyticsRows_(byAdset, true),
     bySource: analyticsRows_(bySource, false),
     byDevice: deviceRows_(byDevice)
   }, spreadsheet.getSpreadsheetTimeZone() || "Asia/Taipei");
@@ -140,7 +144,14 @@ function deviceRows_(map) {
 
 function analyticsSource_(utmSource, referrer) {
   const source = String(utmSource || "").trim();
-  if (source) return source.toLowerCase();
+  if (source) {
+    const normalized = source.toLowerCase();
+    if (normalized === "fb") return "facebook";
+    if (normalized === "ig") return "instagram";
+    if (normalized === "msg") return "messenger";
+    if (normalized === "an") return "audience_network";
+    return normalized;
+  }
 
   const ref = String(referrer || "").trim();
   if (!ref) return "direct";
@@ -204,9 +215,13 @@ function buildAnalyticsSheet_(sheet, data, timezone) {
   const sourceEnd = table_(sheet, deviceEnd + 3, 9, "來源成效",
     ["來源","進站","點報名","完成報名","報名率"], data.bySource, C);
 
-  table_(sheet, Math.max(materialEnd, sourceEnd) + 3, 1, "廣告活動成效",
+  const campaignEnd = table_(sheet, Math.max(materialEnd, sourceEnd) + 3, 1, "廣告活動成效",
     ["UTM活動","進站","點報名","開始填表","完成報名","點擊率","整體報名率"],
     data.byCampaign, C);
+
+  table_(sheet, campaignEnd + 3, 1, "廣告組合成效",
+    ["UTM廣告組","進站","點報名","開始填表","完成報名","點擊率","整體報名率"],
+    data.byAdset, C);
 
   sheet.setFrozenRows(4);
 }
