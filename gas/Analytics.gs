@@ -67,9 +67,8 @@ function refreshTeaAnalytics() {
     }
     if (!eventId && rowEventId) eventId = rowEventId;
 
-    const stageKey = eventName === "registration_success"
-      ? (recordId || sessionId)
-      : sessionId;
+    // 漏斗以「工作階段」為單位，避免同一 session 多筆報名造成轉換率 >100%。
+    const stageKey = sessionId;
     if (stageKey && stages[eventName]) stages[eventName].add(stageKey);
 
     addAnalyticsEvent_(byContent, utmContent || "未標記", eventName, sessionId, recordId);
@@ -78,6 +77,15 @@ function refreshTeaAnalytics() {
     addAnalyticsEvent_(bySource, analyticsSource_(utmSource, referrer), eventName, sessionId, recordId);
     addAnalyticsEvent_(byDevice, device, eventName, sessionId, recordId);
   });
+
+  // 只把有 page_view 的 session 納入漏斗 cohort。
+  // 這可排除清除測試資料後留下的孤立 success 事件，避免 1 次進站卻顯示 2 次完成。
+  const visitSessions = stages.page_view;
+  stages.registration_click = intersectSets_(stages.registration_click, visitSessions);
+  stages.form_start = intersectSets_(stages.form_start, visitSessions);
+  stages.registration_success = intersectSets_(stages.registration_success, visitSessions);
+
+  [byContent, byCampaign, byAdset, bySource, byDevice].forEach(enforceMapCohort_);
 
   const visits = stages.page_view.size;
   const clicks = stages.registration_click.size;
@@ -111,10 +119,26 @@ function addAnalyticsEvent_(map, key, eventName, sessionId, recordId) {
   if (eventName === "page_view" && sessionId) item.visits.add(sessionId);
   if (eventName === "registration_click" && sessionId) item.clicks.add(sessionId);
   if (eventName === "form_start" && sessionId) item.starts.add(sessionId);
-  if (eventName === "registration_success") {
-    const completedKey = recordId || sessionId;
-    if (completedKey) item.completed.add(completedKey);
+  if (eventName === "registration_success" && sessionId) {
+    item.completed.add(sessionId);
   }
+}
+
+function intersectSets_(source, allowed) {
+  const result = new Set();
+  source.forEach(function(value) {
+    if (allowed.has(value)) result.add(value);
+  });
+  return result;
+}
+
+function enforceMapCohort_(map) {
+  Object.keys(map).forEach(function(key) {
+    const item = map[key];
+    item.clicks = intersectSets_(item.clicks, item.visits);
+    item.starts = intersectSets_(item.starts, item.visits);
+    item.completed = intersectSets_(item.completed, item.visits);
+  });
 }
 
 function analyticsRows_(map, includeStart) {
