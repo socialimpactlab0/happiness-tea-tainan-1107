@@ -9,13 +9,13 @@ const REGISTRATION_HEADERS = [
   "第4位姓名","第4位手機","第4位職業",
   "UTM來源","UTM媒介","UTM活動","UTM素材",
   "報名頁網址","瀏覽器資訊","狀態",
-  "訪客編號","工作階段編號","FB點擊編號","來源頁"
+  "訪客編號","工作階段編號","FB點擊編號","來源頁","UTM廣告組"
 ];
 
 const TRACKING_HEADERS = [
   "事件時間","事件編號","事件名稱","訪客編號","工作階段編號","活動編號",
   "UTM來源","UTM媒介","UTM活動","UTM素材","FB點擊編號","頁面網址",
-  "來源頁","裝置","瀏覽器資訊","前端時間","報名編號","事件細節"
+  "來源頁","裝置","瀏覽器資訊","前端時間","報名編號","事件細節","UTM廣告組"
 ];
 
 const ALLOWED_TRACKING_EVENTS = new Set([
@@ -115,7 +115,8 @@ function handleTrackingEvent_(parameter) {
       safeCell_(clean_(parameter.userAgent, 500)),
       safeCell_(clean_(parameter.clientTime, 80)),
       safeCell_(clean_(parameter.recordId, 120)),
-      safeCell_(clean_(parameter.eventDetail, 1000))
+      safeCell_(clean_(parameter.eventDetail, 1000)),
+      safeCell_(clean_(parameter.utmTerm, 160))
     ]);
 
     return json_({ ok: true, eventId: eventId, message: "事件已記錄" });
@@ -189,7 +190,8 @@ function handleRegistration_(parameter) {
       safeCell_(clean_(parameter.visitorId, 120)),
       safeCell_(clean_(parameter.sessionId, 120)),
       safeCell_(clean_(parameter.fbclid, 300)),
-      safeCell_(clean_(parameter.referrer, 500))
+      safeCell_(clean_(parameter.referrer, 500)),
+      safeCell_(clean_(parameter.utmTerm, 160))
     ]);
 
     return json_({ ok: true, recordId: recordId, message: "報名成功" });
