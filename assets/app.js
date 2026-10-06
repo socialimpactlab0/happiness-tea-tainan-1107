@@ -15,6 +15,7 @@
   const VISITOR_KEY = "tea_event_visitor_id_v1";
   const SESSION_KEY = "tea_event_session_id_v1";
   const ATTRIBUTION_KEY = "tea_event_attribution_v1";
+  const PENDING_SUBMISSION_KEY = "tea_event_pending_submission_v1";
 
   const visitorId = getOrCreateId(localStorage, VISITOR_KEY);
   const sessionId = getOrCreateId(sessionStorage, SESSION_KEY);
@@ -45,6 +46,75 @@
     } catch (error) {
       return createId();
     }
+  }
+
+  function getPendingSubmissionId(signature) {
+    try {
+      const raw = sessionStorage.getItem(PENDING_SUBMISSION_KEY);
+      const saved = raw ? JSON.parse(raw) : null;
+      if (saved && saved.signature === signature && saved.id) return saved.id;
+      const id = createId();
+      sessionStorage.setItem(PENDING_SUBMISSION_KEY, JSON.stringify({ id: id, signature: signature }));
+      return id;
+    } catch (error) {
+      return createId();
+    }
+  }
+
+  function clearPendingSubmission() {
+    try { sessionStorage.removeItem(PENDING_SUBMISSION_KEY); } catch (error) {}
+  }
+
+  function checkRegistrationJsonp(recordId) {
+    return new Promise(function (resolve) {
+      if (!gasUrlIsReady() || !recordId) return resolve(false);
+
+      const callbackName = "__teaCheck_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      const script = document.createElement("script");
+      let finished = false;
+
+      function cleanup(value) {
+        if (finished) return;
+        finished = true;
+        try { delete window[callbackName]; } catch (error) { window[callbackName] = undefined; }
+        if (script.parentNode) script.parentNode.removeChild(script);
+        resolve(Boolean(value));
+      }
+
+      window[callbackName] = function (payload) {
+        cleanup(payload && payload.ok && payload.found);
+      };
+
+      const timer = setTimeout(function () { cleanup(false); }, 7000);
+      const originalCleanup = cleanup;
+      cleanup = function (value) {
+        clearTimeout(timer);
+        originalCleanup(value);
+      };
+
+      script.onerror = function () { cleanup(false); };
+      script.src = config.GAS_WEB_APP_URL
+        + "?requestType=check_registration"
+        + "&eventId=" + encodeURIComponent(config.EVENT_ID || "happiness-tea")
+        + "&recordId=" + encodeURIComponent(recordId)
+        + "&callback=" + encodeURIComponent(callbackName)
+        + "&_=" + Date.now();
+      document.head.appendChild(script);
+    });
+  }
+
+  function showRegistrationSuccess(recordId, partySize) {
+    clearPendingSubmission();
+    trackEvent("registration_success", {
+      recordId: recordId || "",
+      partySize: partySize
+    });
+    if (typeof window.TEA_META_TRACK_COMPLETE_REGISTRATION === "function") {
+      window.TEA_META_TRACK_COMPLETE_REGISTRATION(recordId || "");
+    }
+    form.hidden = true;
+    successState.hidden = false;
+    successState.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   function setLoading(loading) {
@@ -230,10 +300,18 @@
       return;
     }
 
+    const signature = JSON.stringify({
+      eventId: config.EVENT_ID || "happiness-tea",
+      partySize: partySize,
+      phones: participants.map(function (p) { return p.phone; })
+    });
+    const clientRecordId = getPendingSubmissionId(signature);
+
     const payload = new URLSearchParams({
       eventId: config.EVENT_ID || "happiness-tea",
       partySize: String(partySize),
       participants: JSON.stringify(participants),
+      clientRecordId: clientRecordId,
       website: String(formData.get("website") || ""),
       pageUrl: window.location.href,
       referrer: document.referrer || "",
@@ -245,11 +323,17 @@
 
     setLoading(true);
 
+    const controller = typeof AbortController === "function" ? new AbortController() : null;
+    const timeoutId = setTimeout(function () {
+      if (controller) controller.abort();
+    }, 15000);
+
     try {
       const response = await fetch(config.GAS_WEB_APP_URL, {
         method: "POST",
         body: payload,
-        redirect: "follow"
+        redirect: "follow",
+        signal: controller ? controller.signal : undefined
       });
 
       if (!response.ok) throw new Error("HTTP " + response.status);
@@ -260,22 +344,19 @@
         return;
       }
 
-      trackEvent("registration_success", {
-        recordId: result.recordId || "",
-        partySize: partySize
-      });
-
-      if (typeof window.TEA_META_TRACK_COMPLETE_REGISTRATION === "function") {
-        window.TEA_META_TRACK_COMPLETE_REGISTRATION(result.recordId || "");
-      }
-
-      form.hidden = true;
-      successState.hidden = false;
-      successState.scrollIntoView({ behavior: "smooth", block: "center" });
+      showRegistrationSuccess(result.recordId || clientRecordId, partySize);
     } catch (error) {
-      console.error(error);
-      status.textContent = "資料暫時無法送出，請稍後再試。";
+      console.warn("Registration response failed, verifying saved record:", error);
+      status.textContent = "正在確認資料是否已送達，請稍候…";
+
+      const found = await checkRegistrationJsonp(clientRecordId);
+      if (found) {
+        showRegistrationSuccess(clientRecordId, partySize);
+      } else {
+        status.textContent = "目前無法確認資料是否送達。請先不要重複按送出，稍後再試；如持續發生可聯絡主辦單位。";
+      }
     } finally {
+      clearTimeout(timeoutId);
       setLoading(false);
     }
   });
