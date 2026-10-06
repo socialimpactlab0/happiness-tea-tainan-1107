@@ -54,10 +54,23 @@ function setupTrackingSheet() {
   return "流量紀錄設定完成";
 }
 
-function doGet() {
+function doGet(e) {
+  const parameter = e && e.parameter ? e.parameter : {};
+  if (clean_(parameter.requestType, 40) === "check_registration") {
+    const payload = checkRegistration_(parameter);
+    const callback = clean_(parameter.callback, 80);
+    if (callback && /^[A-Za-z_$][0-9A-Za-z_$]*$/.test(callback)) {
+      return ContentService
+        .createTextOutput(callback + "(" + JSON.stringify(payload) + ");")
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    }
+    return json_(payload);
+  }
+
   return json_({
     ok: true,
     service: "1107-happiness-tea-registration",
+    version: "2026-10-06-submit-fix",
     tracking: true,
     message: "GAS 報名與流量追蹤服務運作中"
   });
@@ -134,6 +147,7 @@ function handleRegistration_(parameter) {
     }
 
     const eventId = safeCell_(clean_(parameter.eventId, 80));
+    const clientRecordId = safeCell_(clean_(parameter.clientRecordId, 120));
     const partySize = Number(parameter.partySize);
 
     if (!Number.isInteger(partySize) || partySize < 1 || partySize > 4) {
@@ -159,6 +173,15 @@ function handleRegistration_(parameter) {
     const spreadsheet = getSpreadsheet_();
     const sheet = getOrCreateRegistrationSheet_(spreadsheet);
 
+    if (clientRecordId && hasExistingRecordId_(sheet, eventId, clientRecordId)) {
+      return json_({
+        ok: true,
+        duplicateRequest: true,
+        recordId: clientRecordId,
+        message: "報名資料已收到"
+      });
+    }
+
     if (hasExistingPhone_(sheet, eventId, phones)) {
       return json_({
         ok: false, duplicate: true,
@@ -166,7 +189,7 @@ function handleRegistration_(parameter) {
       });
     }
 
-    const recordId = Utilities.getUuid();
+    const recordId = clientRecordId || Utilities.getUuid();
     const participantCells = [];
     for (let index = 0; index < 4; index += 1) {
       const participant = participants[index];
@@ -225,6 +248,36 @@ function ensureHeaders_(sheet, headers, background) {
   const headerRange = sheet.getRange(1, 1, 1, headers.length);
   headerRange.setValues([headers]).setFontWeight("bold")
     .setBackground(background).setFontColor("#ffffff");
+}
+
+function checkRegistration_(parameter) {
+  try {
+    const eventId = clean_(parameter.eventId, 80);
+    const recordId = clean_(parameter.recordId, 120);
+    if (!eventId || !recordId) return { ok: false, found: false };
+
+    const spreadsheet = getSpreadsheet_();
+    const sheet = getOrCreateRegistrationSheet_(spreadsheet);
+    return {
+      ok: true,
+      found: hasExistingRecordId_(sheet, eventId, recordId),
+      recordId: recordId
+    };
+  } catch (error) {
+    console.error(error);
+    return { ok: false, found: false };
+  }
+}
+
+function hasExistingRecordId_(sheet, eventId, recordId) {
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) return false;
+
+  const rows = sheet.getRange(2, 1, lastRow - 1, 3).getDisplayValues();
+  return rows.some(function(row) {
+    return String(row[1]) === String(recordId)
+      && String(row[2]) === String(eventId);
+  });
 }
 
 function hasExistingPhone_(sheet, eventId, phones) {
