@@ -387,6 +387,17 @@
             <small>報名完成</small>
             <h3>謝謝您，期待茶會相見</h3>
             <p>我們已收到您的報名資料。請記下 11/7 的午後茶席，活動前將依報名資料與您聯絡。</p>
+
+            <!-- 電子邀請卡：報名成功後由 assets/invite-card.js 自動產生 -->
+            <div class="invite-card-box" id="inviteCardBox" hidden>
+              <img id="inviteCardImg" alt="幸福茶席電子邀請卡">
+              <div class="invite-card-actions">
+                <button type="button" class="invite-btn invite-btn-save" id="inviteSaveBtn">下載圖片</button>
+                <button type="button" class="invite-btn invite-btn-line" id="inviteLineBtn">分享到 LINE</button>
+              </div>
+              <p class="invite-card-tip">也可以用手指長按上方圖片，選擇「儲存」</p>
+            </div>
+
             <button class="btn outline" id="newRegistration" type="button">再新增一筆報名</button>
           </div>
         </div>
@@ -454,5 +465,6 @@
 
   <script src="config.js"></script>
   <script src="assets/app.js?v=20261006-submit-fix"></script>
+  <script src="assets/invite-card.js?v=20261026"></script>
 </body>
 </html>
