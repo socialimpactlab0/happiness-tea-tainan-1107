@@ -191,11 +191,11 @@
   <header class="hero hero-clean" id="top">
     <nav class="site-nav" aria-label="頁面導覽">
       <a class="site-brand" href="#top">幸福茶席</a>
-      <div class="nav-links"><a class="nav-program" href="#program">活動內容</a><a class="nav-venue" href="#event-info">時間地點</a><a href="#registration">免費報名</a></div>
+      <div class="nav-links"><a class="nav-program" href="#program">活動內容</a><a class="nav-venue" href="#event-info">時間地點</a><a href="#registration">報名已截止</a></div>
     </nav>
     <div class="hero-clean-grid">
       <div class="hero-copy-clean">
-        <p class="hero-kicker">免費公益講座・事先預約</p>
+        <p class="hero-kicker">免費公益講座・本場報名已截止</p>
         <p class="eyebrow">陳乃菁中醫師 × 身體 × 情緒 × 幸福</p>
         <h1>中醫師談幸福，<br><em>留一個下午給自己。</em></h1>
         <p class="hero-sub-clean">我們總忙著照顧工作、家庭和身邊的人，卻很少停下來照顧自己。<br>這個下午，聽陳乃菁中醫師從中醫與日常生活，聊聊身體、情緒與幸福。</p>
@@ -211,8 +211,8 @@
           </span>
         </div>
 
-        <a class="cta-clean" href="#registration">免費報名</a>
-        <p class="hero-micro">免費參加・一次可報名 1–2 位・歡迎與親友同行</p>
+        <a class="cta-clean" href="#registration" aria-label="本場報名已截止">本場報名已截止</a>
+        <p class="hero-micro">感謝大家踴躍參與，本場目前不再接受新的網路報名。</p>
       </div>
 
       <figure class="hero-portrait">
@@ -313,8 +313,8 @@
             </div>
           </div>
           <div class="event-contact">
-            <p><strong>報名窗口</strong>｜謝小姐<br><a class="contact-phone" href="tel:0910283352" aria-label="撥打報名電話 0910-283-352，謝小姐">0910-283-352</a></p>
-            <p>免費入場，敬請預約。下午 2:00 品茗入席，下午 2:30 開始，下午 4:30 結束。</p>
+            <p><strong>活動聯絡窗口</strong>｜謝小姐<br><a class="contact-phone" href="tel:0910283352" aria-label="撥打活動聯絡電話 0910-283-352，謝小姐">0910-283-352</a></p>
+            <p><strong>本場報名已截止，不再接受新的網路報名。</strong><br>下午 2:00 品茗入席，下午 2:30 開始，下午 4:30 結束。</p>
           </div>
         </div>
       </div>
@@ -323,82 +323,26 @@
     <section class="reg" id="registration">
       <div class="wrap reg-two">
         <div>
-          <p class="eyebrow on-dark">席次預約</p>
-          <h2>為自己<br>保留一席</h2>
-          <p class="lead light">活動免費參加，採事先報名。送出後請確認畫面顯示「報名完成」，主辦單位將於活動前依報名資料與您聯絡。</p>
+          <p class="eyebrow on-dark">報名狀態</p>
+          <h2>本場報名<br>已截止</h2>
+          <p class="lead light">感謝大家踴躍參與。11/7 幸福茶席目前已停止接受新的網路報名。</p>
           <ul class="reg-points">
-            <li>一次最多可報名 2 位</li>
-            <li>每位參加者填寫姓名、手機；職業選填</li>
-            <li>資料僅供本次活動聯絡與席次確認</li>
+            <li>原網路報名表單已關閉</li>
+            <li>已完成報名者的資料不受影響</li>
+            <li>如需確認既有報名資料，可聯絡活動窗口</li>
           </ul>
           <div class="reg-contact">
-            <p>電話報名／報名問題洽詢：謝小姐</p>
+            <p>活動聯絡窗口：謝小姐</p>
             <a class="contact-phone" href="tel:0910283352">0910-283-352</a>
           </div>
         </div>
 
-        <div class="form-card">
-          <form id="registrationForm" novalidate>
-            <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-            <h3>填寫報名資料</h3>
-            <p class="helper">請先選擇參加人數，再填寫資料。各位參加者需使用不同的聯絡手機。姓名、手機為必填，職業可留白。</p>
-
-            <label>
-              <span>參加人數（含自己）</span>
-              <select name="partySize" required>
-                <option value="">請選擇人數</option>
-                <option value="1">1 位</option>
-                <option value="2">2 位</option>
-              </select>
-            </label>
-
-            <div id="participantList">
-              <fieldset class="participant-group" data-participant="1">
-                <legend>第1位・主要聯絡人</legend>
-                <label><span>姓名</span><input type="text" name="participant1Name" autocomplete="name" maxlength="40" placeholder="請輸入姓名" required></label>
-                <label><span>聯絡手機</span><input type="tel" name="participant1Phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="例如：0912-345-678" required></label>
-                <label><span>職業（選填）</span><input type="text" name="participant1Occupation" autocomplete="organization-title" maxlength="50" placeholder="可留白，例如：教師、自營業、退休"></label>
-              </fieldset>
-
-              <fieldset class="participant-group" data-participant="2" hidden>
-                <legend>第2位・同行者</legend>
-                <label><span>姓名</span><input type="text" name="participant2Name" maxlength="40" placeholder="請輸入姓名" disabled></label>
-                <label><span>聯絡手機</span><input type="tel" name="participant2Phone" inputmode="tel" maxlength="20" placeholder="例如：0912-345-678" disabled></label>
-                <label><span>職業（選填）</span><input type="text" name="participant2Occupation" maxlength="50" placeholder="可留白，例如：教師、自營業、退休" disabled></label>
-              </fieldset>
-            </div>
-
-            <label class="consent">
-              <input type="checkbox" name="consent" required>
-              <span>我同意主辦單位將上述資料用於本次活動聯絡與席次確認。</span>
-            </label>
-
-            <button class="btn submit submit-button" type="submit">
-              <span class="button-text">確認報名・保留茶席</span>
-              <span class="button-loading" hidden>資料送出中…</span>
-            </button>
-            <p class="required-note">送出後請等候結果，避免重複按送出；看到「報名完成」即表示資料已送達。</p>
-            <p class="status" id="formStatus" role="status" aria-live="polite"></p>
-          </form>
-
-          <div class="success-state" id="successState" hidden>
+        <div class="form-card" aria-live="polite">
+          <div class="success-state">
             <div class="success-icon" aria-hidden="true">✓</div>
-            <small>報名完成</small>
-            <h3>謝謝您，期待茶會相見</h3>
-            <p>我們已收到您的報名資料。請記下 11/7 的午後茶席，活動前將依報名資料與您聯絡。</p>
-
-            <!-- 電子邀請卡：報名成功後由 assets/invite-card.js 自動產生 -->
-            <div class="invite-card-box" id="inviteCardBox" hidden>
-              <img id="inviteCardImg" alt="幸福茶席電子邀請卡">
-              <div class="invite-card-actions">
-                <button type="button" class="invite-btn invite-btn-save" id="inviteSaveBtn">下載圖片</button>
-                <button type="button" class="invite-btn invite-btn-line" id="inviteLineBtn">分享到 LINE</button>
-              </div>
-              <p class="invite-card-tip">也可以用手指長按上方圖片，選擇「儲存」</p>
-            </div>
-
-            <button class="btn outline" id="newRegistration" type="button">再新增一筆報名</button>
+            <small>REGISTRATION CLOSED</small>
+            <h3>謝謝您的關注</h3>
+            <p>本場活動報名已截止，目前不再接受新的報名資料。</p>
           </div>
         </div>
       </div>
@@ -407,7 +351,7 @@
     <section class="faq">
       <div class="wrap faq-two">
         <div>
-          <p class="eyebrow">報名前，你可能想知道</p>
+          <p class="eyebrow">活動資訊</p>
           <h2>常見問題</h2>
         </div>
         <div>
@@ -421,11 +365,11 @@
           </details>
           <details>
             <summary>可以帶家人或朋友一起參加嗎？</summary>
-            <p>可以。一次最多可報名 2 位，請填寫每一位實際參加者的姓名、手機，以利確認茶席；職業為選填。</p>
+            <p>本場目前報名已截止；已完成報名者如需確認資料，可聯絡活動窗口。</p>
           </details>
           <details>
             <summary>需要費用嗎？需要自備什麼嗎？</summary>
-            <p>本場為公益講座，免費參加，採事先預約制。現場備有茶席，帶著自己來就可以。</p>
+            <p>本場為公益講座；目前報名已截止，不再接受新的網路報名。</p>
           </details>
         </div>
       </div>
@@ -436,13 +380,13 @@
       <b>幸福茶席・公益講座</b>
       <small>11/7（六）・維悅酒店 B1 國際會議廳・免費參加<br>台南市安平區慶平路 539 號</small>
       <div class="foot-contact">
-        <small>報名窗口｜謝小姐 <a class="contact-phone" href="tel:0910283352">0910-283-352</a></small>
+        <small>活動聯絡窗口｜謝小姐 <a class="contact-phone" href="tel:0910283352">0910-283-352</a></small>
       </div>
     </footer>
   </main>
 
   <div class="sticky" id="stickyCta">
-    <a href="#registration">免費報名・保留一席</a>
+    <a href="#registration">本場報名已截止</a>
   </div>
 
   <script>
@@ -464,7 +408,7 @@
   </script>
 
   <script src="config.js"></script>
-  <script src="assets/app.js?v=20261006-submit-fix"></script>
+  <script src="assets/app.js?v=20261031-registration-closed"></script>
   <script src="assets/invite-card.js?v=20261026"></script>
 </body>
 </html>
