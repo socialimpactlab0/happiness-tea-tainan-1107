@@ -1,3 +1,4 @@
+const REGISTRATION_CLOSED = true;
 const REGISTRATION_SHEET_NAME = "報名名單";
 const TRACKING_SHEET_NAME = "流量紀錄";
 
@@ -139,6 +140,10 @@ function handleTrackingEvent_(parameter) {
 }
 
 function handleRegistration_(parameter) {
+  if (REGISTRATION_CLOSED) {
+    return json_({ ok: false, closed: true, message: "本場報名已截止" });
+  }
+
   const lock = LockService.getScriptLock();
 
   try {
