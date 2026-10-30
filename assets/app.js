@@ -2,7 +2,23 @@
   "use strict";
 
   const config = window.TEA_EVENT_CONFIG || {};
+
+  // 報名截止保護：即使使用者仍開著舊版頁面，也不讓前端繼續送出新報名。
+  if (config.REGISTRATION_CLOSED === true) {
+    const oldForm = document.getElementById("registrationForm");
+    if (oldForm) {
+      oldForm.querySelectorAll("input, select, button").forEach(function (el) {
+        el.disabled = true;
+      });
+      oldForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+      });
+    }
+    return;
+  }
+
   const form = document.getElementById("registrationForm");
+  if (!form) return;
   const successState = document.getElementById("successState");
   const status = document.getElementById("formStatus");
   const submitButton = form.querySelector(".submit-button");
